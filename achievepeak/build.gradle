@@ -40,3 +40,12 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootJar {
+    enabled = true
+    mainClass.set('com.achievepeak.AchievepeakApplication')
+}
+
+jar {
+    enabled = false
+}

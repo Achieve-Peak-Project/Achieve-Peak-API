@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AchievepeakApplication<achievepeak>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.achievepeak.AchievepeakApplication",
+            "projectName": "achievepeak",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
