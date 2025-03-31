@@ -50,10 +50,6 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'  
 	testImplementation 'junit:junit:4.13' // 테스트 라이브러리  
 
-	
-    // dotenv-java
-    implementation 'io.github.cdimascio:java-dotenv:+'  
-
 }
 
 tasks.named('test') {
