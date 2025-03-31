@@ -65,3 +65,7 @@ jobs:
           app-name: 'app-achievepeak-api'  
           slot-name: 'Production'  
           package: 'app.jar'  # 특정 파일 지정  
+        env:  
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}  
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}  
+          REFRESH_SECRET_KEY: ${{ secrets.REFRESH_SECRET_KEY }}
