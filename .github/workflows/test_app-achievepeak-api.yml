@@ -22,21 +22,7 @@ jobs:
       - name: Grant execute permission for gradlew  
         run: chmod +x ./gradlew  
         working-directory: achievepeak  # Gradle 프로젝트 디렉토리 설정  
-      
-      - name: Set environment variables in application.properties  
-        run: |  
-          sed -i "s/\${DB_PASSWORD}/${{ secrets.DB_PASSWORD }}/g" achievepeak/src/main/resources/application.properties  
-          sed -i "s/\${JWT_SECRET_KEY}/${{ secrets.JWT_SECRET_KEY }}/g" achievepeak/src/main/resources/application.properties  
-          sed -i "s/\${REFRESH_SECRET_KEY}/${{ secrets.REFRESH_SECRET_KEY }}/g" achievepeak/src/main/resources/application.properties     
-             
-      - name: Build with Gradle  
-        run: ./gradlew clean build
-        working-directory: achievepeak  # Gradle 프로젝트 디렉토리 설정  
-        env:  
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}  
-          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}  
-          REFRESH_SECRET_KEY: ${{ secrets.REFRESH_SECRET_KEY }}  
-
+          
       - name: Upload artifact for deployment job  
         uses: actions/upload-artifact@v4  
         with:  
@@ -78,7 +64,3 @@ jobs:
           app-name: 'app-achievepeak-api'  
           slot-name: 'Production'  
           package: 'app.jar'  # 특정 파일 지정  
-        env:  
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}  
-          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}  
-          REFRESH_SECRET_KEY: ${{ secrets.REFRESH_SECRET_KEY }}
