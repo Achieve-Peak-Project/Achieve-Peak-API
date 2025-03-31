@@ -18,12 +18,19 @@ jobs:
         with:  
           java-version: '21'  # 올바른 SemVer 표기법 사용  
           distribution: 'microsoft'  
+
       - name: Grant execute permission for gradlew  
         run: chmod +x ./gradlew  
         working-directory: achievepeak  # Gradle 프로젝트 디렉토리 설정  
+      
       - name: Build with Gradle  
         run: ./gradlew clean build
         working-directory: achievepeak  # Gradle 프로젝트 디렉토리 설정  
+        env:  
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}  
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}  
+          REFRESH_SECRET_KEY: ${{ secrets.REFRESH_SECRET_KEY }}  
+
       - name: Upload artifact for deployment job  
         uses: actions/upload-artifact@v4  
         with:  
