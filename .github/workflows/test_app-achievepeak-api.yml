@@ -27,7 +27,7 @@ jobs:
         run: |  
           sed -i 's/\${DB_PASSWORD}/'"${{ secrets.DB_PASSWORD }}"'/g' achievepeak/src/main/resources/application.properties  
           sed -i 's/\${JWT_SECRET_KEY}/'"${{ secrets.JWT_SECRET_KEY }}"'/g' achievepeak/src/main/resources/application.properties  
-          sed -i 's/\${REFRESH_SECRET_KEY}/'"${{ secrets.REFRESH_SECRET_KEY }}"'/g' achievepeak/src/main/resources/application.properties  
+          sed -i 's/\${REFRESH_SECRET_KEY}/'"${{ secrets.REFRESH_SECRET_KEY }}"'/g' achievepeak/src/main/resources/application.properties
       
       - name: Build with Gradle  
         run: ./gradlew clean build
